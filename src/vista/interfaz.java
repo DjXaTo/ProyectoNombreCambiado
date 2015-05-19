@@ -250,6 +250,11 @@ public class interfaz extends javax.swing.JFrame {
         );
 
         btnVerAlum.setText("Ver alumnos");
+        btnVerAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerAlumActionPerformed(evt);
+            }
+        });
 
         btnMatricularAlum.setText("Matricular alumno");
         btnMatricularAlum.addActionListener(new java.awt.event.ActionListener() {
@@ -1040,6 +1045,10 @@ public class interfaz extends javax.swing.JFrame {
     private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidosActionPerformed
+
+    private void btnVerAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerAlumActionPerformed
 
     /**
     * @param args the command line arguments

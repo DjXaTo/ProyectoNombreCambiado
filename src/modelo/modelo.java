@@ -11,15 +11,15 @@ public class modelo extends database{
     public modelo (){}
 
     /** Obtiene registros de la tabla PRODUCTO y los devuelve en un DefaultTableModel*/
-    public DefaultTableModel getTablaProducto()
+    public DefaultTableModel gettabAlumnos()
     {
       DefaultTableModel tablemodel = new DefaultTableModel();
       int registros = 0;
-      String[] columNames = {"ID","Nomnbre","Precio","Cantidad"};
+      String[] columNames = {"DNI_Alum","Nombre","Apellidos","Telefono","Curso_Matri"};
       //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
       //para formar la matriz de datos
       try{
-         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM producto");
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Alumnos");
          ResultSet res = pstm.executeQuery();
          res.next();
          registros = res.getInt("total");
@@ -31,14 +31,15 @@ public class modelo extends database{
     Object[][] data = new String[registros][5];
       try{
           //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM producto");
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Alumnos");
          ResultSet res = pstm.executeQuery();
          int i=0;
          while(res.next()){
-                data[i][0] = res.getString( "p_id" );
-                data[i][1] = res.getString( "p_nombre" );
-                data[i][2] = res.getString( "p_precio" );
-                data[i][3] = res.getString( "p_cantidad" );
+                data[i][0] = res.getString( "DNI_Alum" );
+                data[i][1] = res.getString( "Nombre" );
+                data[i][2] = res.getString( "Apellidos" );
+                data[i][3] = res.getString( "Telefono" );
+                data[i][4] = res.getString( "Curso_Matri" );
             i++;
          }
          res.close();
@@ -51,15 +52,15 @@ public class modelo extends database{
     }
 
     /** Registra un nuevo producto */
-    public boolean NuevoProducto(String id, String nombre , String precio, String cantidad)
+    public boolean NuevoAlumno(String DNI, String Nombre , String Apellidos, String Telefono, String Curso_Matri)
     {
-        if( valida_datos(id, nombre, precio, cantidad)  )
+        if( valida_datos(DNI, Nombre, Apellidos, Telefono, Curso_Matri)  )
         {
             //se reemplaza "," por "."
-            precio = precio.replace(",", ".");
+            Apellidos = Apellidos.replace(",", ".");
             //Se arma la consulta
-            String q=" INSERT INTO producto ( p_id , p_nombre , p_precio, p_cantidad  ) "
-                    + "VALUES ( '" + id + "','" + nombre + "', '" + precio + "'," + cantidad + " ) ";
+            String q=" INSERT INTO Alumnos ( DNI_Alum, Nombre , Apellidos, Telefono, Curso_Matri  ) "
+                    + "VALUES ( '" + DNI + "','" + Nombre + "', '" + Apellidos + "'," + Telefono + "'," + Curso_Matri + " ) ";
             //se ejecuta la consulta
             try {
                 PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -77,11 +78,11 @@ public class modelo extends database{
 
 
     /** Elimina un registro dado su ID -> Llave primaria */
-    public boolean EliminarProducto( String id )
+    public boolean EliminarAlumno( String DNI )
     {
          boolean res=false;
         //se arma la consulta
-        String q = " DELETE FROM producto WHERE  p_id='" + id + "' " ;
+        String q = " DELETE FROM Alumnos WHERE  DNI_Alum='" + DNI + "' " ;
         //se ejecuta la consulta
          try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -95,11 +96,11 @@ public class modelo extends database{
     }
 
     /** Metodo privado para validar datos */
-    private boolean valida_datos(String id, String nombre , String precio, String cantidad)
+    private boolean valida_datos(String DNI, String Nombre , String Apellidos, String Telefono, String Curso_Matri)
     {
-        if( id.equals("  -   ") )
+        if( DNI.equals("        - ") )
             return false;
-        else if( nombre.length() > 0 && precio.length()>0 && cantidad.length() >0)
+        else if( Nombre.length() > 0 && Apellidos.length()>0 && Telefono.length() >0 && Curso_Matri.length()>0)
         {
             return true;
         }
