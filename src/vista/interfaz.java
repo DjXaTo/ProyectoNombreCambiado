@@ -95,25 +95,52 @@ public class interfaz extends javax.swing.JFrame {
         btnModCursos = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menArch = new javax.swing.JMenu();
+        subMenPpal = new javax.swing.JMenuItem();
         subMenSalir = new javax.swing.JMenuItem();
         menAcer = new javax.swing.JMenu();
         subMenVersion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         panPrincipal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "   Elige una opción  ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11)));
         panPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPpalAlum.setText("Alumnos");
+        btnPpalAlum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPpalAlumMouseClicked(evt);
+            }
+        });
+        btnPpalAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPpalAlumActionPerformed(evt);
+            }
+        });
         panPrincipal.add(btnPpalAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, 120));
 
         btnPpalAulas.setText("Aulas");
+        btnPpalAulas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPpalAulasActionPerformed(evt);
+            }
+        });
         panPrincipal.add(btnPpalAulas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 170, 120));
 
         btnPpalDoc.setText("Docentes");
+        btnPpalDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPpalDocActionPerformed(evt);
+            }
+        });
         panPrincipal.add(btnPpalDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 20, 160, 120));
 
         btnPpalCursos.setText("Cursos");
+        btnPpalCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPpalCursosActionPerformed(evt);
+            }
+        });
         panPrincipal.add(btnPpalCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 150, 160, 120));
 
         panTabAlum.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "   Lista de Productos  ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
@@ -191,7 +218,6 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
-        txtApellidos_Alum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         txtApellidos_Alum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidos_AlumActionPerformed(evt);
@@ -370,6 +396,7 @@ public class interfaz extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtDNI_Doc.setText("");
         txtDNI_Doc.setToolTipText("DNI EN FORMATO ########-A");
         txtDNI_Doc.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtDNI_Doc.addActionListener(new java.awt.event.ActionListener() {
@@ -615,23 +642,23 @@ public class interfaz extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnVerAulas.setText("Ver alumnos");
+        btnVerAulas.setText("Ver aulas");
         btnVerAulas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerAulasActionPerformed(evt);
             }
         });
 
-        btnMatricularAulas.setText("Matricular alumno");
+        btnMatricularAulas.setText("Añadir aula");
         btnMatricularAulas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMatricularAulasActionPerformed(evt);
             }
         });
 
-        btnEliminarAulas.setText("Eliminar alumno");
+        btnEliminarAulas.setText("Eliminar aula");
 
-        btnModAulas.setText("Modificar alumno");
+        btnModAulas.setText("Modificar aula");
 
         javax.swing.GroupLayout panAulasLayout = new javax.swing.GroupLayout(panAulas);
         panAulas.setLayout(panAulasLayout);
@@ -728,7 +755,6 @@ public class interfaz extends javax.swing.JFrame {
         });
 
         try {
-            txtNombreCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("******************************")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -740,7 +766,6 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
-        txtModalidadCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         txtModalidadCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtModalidadCursoActionPerformed(evt);
@@ -768,15 +793,13 @@ public class interfaz extends javax.swing.JFrame {
                                 .addComponent(txtIDCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(352, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, intDatPanCursosLayout.createSequentialGroup()
+                        .addGroup(intDatPanCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiNombre4)
+                            .addComponent(etiApellidos4))
+                        .addGap(26, 26, 26)
                         .addGroup(intDatPanCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(intDatPanCursosLayout.createSequentialGroup()
-                                .addComponent(etiNombre4)
-                                .addGap(40, 40, 40)
-                                .addComponent(txtNombreCurso))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, intDatPanCursosLayout.createSequentialGroup()
-                                .addComponent(etiApellidos4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                                .addComponent(txtModalidadCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtModalidadCurso)
+                            .addComponent(txtNombreCurso))
                         .addGap(41, 41, 41))))
         );
         intDatPanCursosLayout.setVerticalGroup(
@@ -801,23 +824,23 @@ public class interfaz extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        btnVerCursos.setText("Ver alumnos");
+        btnVerCursos.setText("Ver cursos");
         btnVerCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerCursosActionPerformed(evt);
             }
         });
 
-        btnMatricularCursos.setText("Matricular alumno");
+        btnMatricularCursos.setText("Añadir curso");
         btnMatricularCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMatricularCursosActionPerformed(evt);
             }
         });
 
-        btnEliminarCursos.setText("Eliminar alumno");
+        btnEliminarCursos.setText("Eliminar curso");
 
-        btnModCursos.setText("Modificar alumno");
+        btnModCursos.setText("Modificar curso");
 
         javax.swing.GroupLayout panCursosLayout = new javax.swing.GroupLayout(panCursos);
         panCursos.setLayout(panCursosLayout);
@@ -857,7 +880,20 @@ public class interfaz extends javax.swing.JFrame {
 
         menArch.setText("Archivo");
 
+        subMenPpal.setText("Menú principal");
+        subMenPpal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subMenPpalActionPerformed(evt);
+            }
+        });
+        menArch.add(subMenPpal);
+
         subMenSalir.setText("Salir");
+        subMenSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subMenSalirActionPerformed(evt);
+            }
+        });
         menArch.add(subMenSalir);
 
         menuBar.add(menArch);
@@ -1003,6 +1039,58 @@ public class interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDAulaActionPerformed
 
+    private void btnPpalAlumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPpalAlumMouseClicked
+        panAlum.setVisible(true);
+        panPrincipal.setVisible(false);
+        panDoc.setVisible(false);
+        panAulas.setVisible(false);
+        panCursos.setVisible(false);
+    }//GEN-LAST:event_btnPpalAlumMouseClicked
+
+    private void btnPpalAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPpalAlumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPpalAlumActionPerformed
+
+    private void subMenSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_subMenSalirActionPerformed
+
+    private void subMenPpalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenPpalActionPerformed
+        panPrincipal.setLocation(100,100);
+        panPrincipal.setVisible(true);
+        panAlum.setVisible(false);
+        panDoc.setVisible(false);
+        panAulas.setVisible(false);
+        panCursos.setVisible(false);
+    }//GEN-LAST:event_subMenPpalActionPerformed
+
+    private void btnPpalDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPpalDocActionPerformed
+        panDoc.setLocation(100,100);
+        panDoc.setVisible(true);
+        panPrincipal.setVisible(false);
+        panAlum.setVisible(false);
+        panAulas.setVisible(false);
+        panCursos.setVisible(false);
+    }//GEN-LAST:event_btnPpalDocActionPerformed
+
+    private void btnPpalAulasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPpalAulasActionPerformed
+        panAulas.setLocation(100,100);
+        panAulas.setVisible(true);
+        panPrincipal.setVisible(false);
+        panAlum.setVisible(false);
+        panDoc.setVisible(false);
+        panCursos.setVisible(false);
+    }//GEN-LAST:event_btnPpalAulasActionPerformed
+
+    private void btnPpalCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPpalCursosActionPerformed
+        panCursos.setLocation(100,100);
+        panCursos.setVisible(true);
+        panPrincipal.setVisible(false);
+        panAlum.setVisible(false);
+        panDoc.setVisible(false);
+        panAulas.setVisible(false);
+    }//GEN-LAST:event_btnPpalCursosActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1023,7 +1111,7 @@ public class interfaz extends javax.swing.JFrame {
     public javax.swing.JButton btnMatricularAulas;
     public javax.swing.JButton btnMatricularCursos;
     public javax.swing.JButton btnMatricularDoc;
-    private javax.swing.JButton btnModAlum;
+    public javax.swing.JButton btnModAlum;
     private javax.swing.JButton btnModAulas;
     private javax.swing.JButton btnModCursos;
     private javax.swing.JButton btnModDoc;
@@ -1062,15 +1150,16 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JMenu menAcer;
     private javax.swing.JMenu menArch;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JPanel panAlum;
-    private javax.swing.JPanel panAulas;
-    private javax.swing.JPanel panCursos;
-    private javax.swing.JPanel panDoc;
-    private javax.swing.JPanel panPrincipal;
+    public javax.swing.JPanel panAlum;
+    public javax.swing.JPanel panAulas;
+    public javax.swing.JPanel panCursos;
+    public javax.swing.JPanel panDoc;
+    public javax.swing.JPanel panPrincipal;
     private javax.swing.JPanel panTabAlum;
     private javax.swing.JPanel panTabAulas;
     private javax.swing.JPanel panTabCursos;
     private javax.swing.JPanel panTabDoc;
+    private javax.swing.JMenuItem subMenPpal;
     private javax.swing.JMenuItem subMenSalir;
     private javax.swing.JMenuItem subMenVersion;
     public javax.swing.JTable tabAlumnos;

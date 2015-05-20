@@ -7,7 +7,7 @@ import java.sql.*;
 public class database {
  /* DATOS PARA LA CONEXION */
   /** base de datos por defecto es test*/
-  private String db = "dam28_pruebas";
+  private String db = "dam28_ProyectoProg";
   /** usuario */
   private String user = "dam28";
   /** contraseña de MySql*/

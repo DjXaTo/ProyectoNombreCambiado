@@ -27,9 +27,22 @@ public class controlador implements ActionListener,MouseListener{
      */
     public enum AccionMVC
     {
-        __VER_PRODUCTOS,
-        __AGREGAR_PRODUCTO,
-        __ELIMINAR_PRODUCTO
+        ver_Alum,
+        aniadir_Alum,
+        eliminar_Alum,
+        modificar_Alum,
+        ver_Doc,
+        aniadir_Doc,
+        eliminar_Doc,
+        modificar_Doc,
+        ver_Aula,
+        aniadir_Aula,
+        eliminar_Aula,
+        modificar_Aula,
+        ver_Curso,
+        aniadir_Curso,
+        eliminar_Curso,
+        modificar_Curso,
     }
 
     /** Constrcutor de clase
@@ -48,36 +61,45 @@ public class controlador implements ActionListener,MouseListener{
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             SwingUtilities.updateComponentTreeUI(vista);
             vista.setVisible(true);
+            vista.panPrincipal.setVisible(true);
+            vista.panAlum.setVisible(false);
+            vista.panDoc.setVisible(false);
+            vista.panAulas.setVisible(false);
+            vista.panCursos.setVisible(false);
         } catch (UnsupportedLookAndFeelException ex) {}
           catch (ClassNotFoundException ex) {}
           catch (InstantiationException ex) {}
           catch (IllegalAccessException ex) {}
 
         //declara una acción y añade un escucha al evento producido por el componente
-        this.vista.__VER_PRODUCTOS.setActionCommand( "__VER_PRODUCTOS" );
-        this.vista.__VER_PRODUCTOS.addActionListener(this);
+        this.vista.btnVerAlum.setActionCommand( "ver_Alum" );
+        this.vista.btnVerAlum.addActionListener(this);
         //declara una acción y añade un escucha al evento producido por el componente
-        this.vista.__AGREGAR_PRODUCTO.setActionCommand( "__AGREGAR_PRODUCTO" );
-        this.vista.__AGREGAR_PRODUCTO.addActionListener(this);
+        this.vista.btnMatricularAlum.setActionCommand( "aniadir_Alum" );
+        this.vista.btnMatricularAlum.addActionListener(this);
         //declara una acción y añade un escucha al evento producido por el componente
-        this.vista.__ELIMINAR_PRODUCTO.setActionCommand( "__ELIMINAR_PRODUCTO" );
-        this.vista.__ELIMINAR_PRODUCTO.addActionListener(this);
+        this.vista.btnEliminarAlum.setActionCommand( "eliminar_Alum" );
+        this.vista.btnEliminarAlum.addActionListener(this);
+        //declara una acción y añade un escucha al evento producido por el componente
+        this.vista.btnModAlum.setActionCommand( "modificar_Alum" );
+        this.vista.btnModAlum.addActionListener(this);        
 
         //añade e inicia el jtable con un DefaultTableModel vacio
-        this.vista.__tabla_producto.addMouseListener(this);
-        this.vista.__tabla_producto.setModel( new DefaultTableModel() );
+        this.vista.tabAlumnos.addMouseListener(this);
+        this.vista.tabAlumnos.setModel( new DefaultTableModel() );
     }
 
     //Eventos que suceden por el mouse
     public void mouseClicked(MouseEvent e) {
         if( e.getButton()== 1)//boton izquierdo
         {
-             int fila = this.vista.__tabla_producto.rowAtPoint(e.getPoint());
+             int fila = this.vista.tabAlumnos.rowAtPoint(e.getPoint());
              if (fila > -1){                
-                this.vista.__id_producto.setText( String.valueOf( this.vista.__tabla_producto.getValueAt(fila, 0) ));
-                this.vista.__nombre.setText( String.valueOf( this.vista.__tabla_producto.getValueAt(fila, 1) ));
-                this.vista.__precio.setText( String.valueOf( this.vista.__tabla_producto.getValueAt(fila, 2) ));
-                this.vista.__cantidad.setText( String.valueOf( this.vista.__tabla_producto.getValueAt(fila, 3) ));
+                this.vista.txtDNI_Alum.setText( String.valueOf( this.vista.tabAlumnos.getValueAt(fila, 0) ));
+                this.vista.txtNombre_Alum.setText( String.valueOf( this.vista.tabAlumnos.getValueAt(fila, 1) ));
+                this.vista.txtApellidos_Alum.setText( String.valueOf( this.vista.tabAlumnos.getValueAt(fila, 2) ));
+                this.vista.txtTelf_Alum.setText( String.valueOf( this.vista.tabAlumnos.getValueAt(fila, 3) ));
+                this.vista.txtCurso_Alum.setText( String.valueOf( this.vista.tabAlumnos.getValueAt(fila, 4) ));
              }
         }
     }
@@ -95,37 +117,41 @@ public class controlador implements ActionListener,MouseListener{
 
     switch ( AccionMVC.valueOf( e.getActionCommand() ) )
         {
-            case __VER_PRODUCTOS:
+            case ver_Alum:
                 //obtiene del modelo los registros en un DefaultTableModel y lo asigna en la vista
-                this.vista.__tabla_producto.setModel( this.modelo.getTablaProducto() );
+                this.vista.tabAlumnos.setModel( this.modelo.gettabAlumnos() );
                 break;
-            case __AGREGAR_PRODUCTO:
+            case aniadir_Alum:
                 //añade un nuevo registro
-                if ( this.modelo.NuevoProducto(
-                        this.vista.__id_producto.getText(),
-                        this.vista.__nombre.getText() ,
-                        this.vista.__precio.getText(),
-                        this.vista.__cantidad.getText() ) )
+                if ( this.modelo.NuevoAlumno(
+                        this.vista.txtDNI_Alum.getText(),
+                        this.vista.txtNombre_Alum.getText() ,
+                        this.vista.txtApellidos_Alum.getText(),
+                        this.vista.txtTelf_Alum.getText(),
+                        this.vista.txtCurso_Alum.getText() ) )
                 {
-                    this.vista.__tabla_producto.setModel( this.modelo.getTablaProducto() );
+                    this.vista.tabAlumnos.setModel( this.modelo.gettabAlumnos() );
                     JOptionPane.showMessageDialog(vista,"Exito: Nuevo registro agregado.");
-                    this.vista.__id_producto.setText("");
-                    this.vista.__nombre.setText("") ;
-                    this.vista.__precio.setText("0");
-                    this.vista.__cantidad.setText("0") ;
+                    this.vista.txtDNI_Alum.setText("");
+                    this.vista.txtNombre_Alum.setText("") ;
+                    this.vista.txtApellidos_Alum.setText("");
+                    this.vista.txtTelf_Alum.setText("") ;
+                    this.vista.txtCurso_Alum.setText("");
+
                 }
                 else //ocurrio un error
                     JOptionPane.showMessageDialog(vista,"Error: Los datos son incorrectos.");
                 break;
-            case __ELIMINAR_PRODUCTO:
-                if ( this.modelo.EliminarProducto( this.vista.__id_producto.getText() ) )
+            case eliminar_Alum:
+                if ( this.modelo.EliminarAlumno( this.vista.txtDNI_Alum.getText() ) )
                 {
-                    this.vista.__tabla_producto.setModel( this.modelo.getTablaProducto() );
+                    this.vista.tabAlumnos.setModel( this.modelo.gettabAlumnos() );
                     JOptionPane.showMessageDialog(vista,"Exito: Registro eliminado.");
-                    this.vista.__id_producto.setText("");
-                    this.vista.__nombre.setText("") ;
-                    this.vista.__precio.setText("0");
-                    this.vista.__cantidad.setText("0") ;
+                    this.vista.txtDNI_Alum.setText("");
+                    this.vista.txtNombre_Alum.setText("") ;
+                    this.vista.txtApellidos_Alum.setText("");
+                    this.vista.txtTelf_Alum.setText("") ;
+                    this.vista.txtCurso_Alum.setText("");
                 }   
                 break;       
         }

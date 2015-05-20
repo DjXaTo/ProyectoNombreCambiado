@@ -10,13 +10,13 @@ public class modelo extends database{
     /** Constructor de clase */
     public modelo (){}
 
-    /** Obtiene registros de la tabla PRODUCTO y los devuelve en un DefaultTableModel*/
+    /** Obtiene registros de la tabla Alumno y los devuelve en un DefaultTableModel*/
     public DefaultTableModel gettabAlumnos()
     {
       DefaultTableModel tablemodel = new DefaultTableModel();
       int registros = 0;
       String[] columNames = {"DNI_Alum","Nombre","Apellidos","Telefono","Curso_Matri"};
-      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "alumnos"
       //para formar la matriz de datos
       try{
          PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Alumnos");
@@ -51,16 +51,14 @@ public class modelo extends database{
         return tablemodel;
     }
 
-    /** Registra un nuevo producto */
+    /** Registra un nuevo alumno */
     public boolean NuevoAlumno(String DNI, String Nombre , String Apellidos, String Telefono, String Curso_Matri)
     {
         if( valida_datos(DNI, Nombre, Apellidos, Telefono, Curso_Matri)  )
         {
-            //se reemplaza "," por "."
-            Apellidos = Apellidos.replace(",", ".");
             //Se arma la consulta
             String q=" INSERT INTO Alumnos ( DNI_Alum, Nombre , Apellidos, Telefono, Curso_Matri  ) "
-                    + "VALUES ( '" + DNI + "','" + Nombre + "', '" + Apellidos + "'," + Telefono + "'," + Curso_Matri + " ) ";
+                    + "VALUES ( '" + DNI + "','" + Nombre + "', '" + Apellidos + "', '" + Telefono + "', '" + Curso_Matri + "' ) ";
             //se ejecuta la consulta
             try {
                 PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -98,7 +96,7 @@ public class modelo extends database{
     /** Metodo privado para validar datos */
     private boolean valida_datos(String DNI, String Nombre , String Apellidos, String Telefono, String Curso_Matri)
     {
-        if( DNI.equals("        - ") )
+        if( DNI.equals("        ") )
             return false;
         else if( Nombre.length() > 0 && Apellidos.length()>0 && Telefono.length() >0 && Curso_Matri.length()>0)
         {

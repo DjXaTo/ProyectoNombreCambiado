@@ -9,10 +9,21 @@
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="subMenPpal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Men&#xfa; principal"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subMenPpalActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="subMenSalir">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subMenSalirActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -33,6 +44,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar"/>
@@ -129,6 +141,9 @@
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
       </AccessibilityProperties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="false"/>
@@ -138,6 +153,10 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Alumnos"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnPpalAlumMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPpalAlumActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="20" y="20" width="170" height="120"/>
@@ -148,6 +167,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Aulas"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPpalAulasActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="20" y="150" width="170" height="120"/>
@@ -158,6 +180,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Docentes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPpalDocActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="413" y="20" width="160" height="120"/>
@@ -168,6 +193,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cursos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPpalCursosActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="413" y="150" width="160" height="120"/>
@@ -177,6 +205,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panAlum">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -446,11 +477,6 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtApellidos_Alum">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format format="#0.00" subtype="-1" type="0"/>
-                </Property>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtApellidos_AlumActionPerformed"/>
               </Events>
@@ -514,10 +540,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar alumno"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panDoc">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -756,6 +788,7 @@
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="########-A" subtype="-1" type="5"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value=""/>
                 <Property name="toolTipText" type="java.lang.String" value="DNI EN FORMATO ########-A"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Texto"/>
@@ -856,6 +889,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panAulas">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1065,7 +1101,7 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnVerAulas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver alumnos"/>
+            <Property name="text" type="java.lang.String" value="Ver aulas"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerAulasActionPerformed"/>
@@ -1076,7 +1112,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnMatricularAulas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Matricular alumno"/>
+            <Property name="text" type="java.lang.String" value="A&#xf1;adir aula"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMatricularAulasActionPerformed"/>
@@ -1087,7 +1123,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnEliminarAulas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Eliminar alumno"/>
+            <Property name="text" type="java.lang.String" value="Eliminar aula"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1095,12 +1131,15 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnModAulas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modificar alumno"/>
+            <Property name="text" type="java.lang.String" value="Modificar aula"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panCursos">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1236,17 +1275,14 @@
                               <EmptySpace pref="352" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="etiNombre4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="etiApellidos4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="etiNombre4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="txtNombreCurso" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="etiApellidos4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="33" max="32767" attributes="0"/>
-                                      <Component id="txtModalidadCurso" min="-2" pref="427" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtModalidadCurso" max="32767" attributes="0"/>
+                                  <Component id="txtNombreCurso" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
@@ -1336,9 +1372,7 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtNombreCurso">
               <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="******************************" subtype="-1" type="5"/>
-                </Property>
+                <Property name="formatterFactory" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
                 <Property name="text" type="java.lang.String" value=""/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
@@ -1350,11 +1384,6 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtModalidadCurso">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format format="#0.00" subtype="-1" type="0"/>
-                </Property>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtModalidadCursoActionPerformed"/>
               </Events>
@@ -1376,7 +1405,7 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnVerCursos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver alumnos"/>
+            <Property name="text" type="java.lang.String" value="Ver cursos"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerCursosActionPerformed"/>
@@ -1387,7 +1416,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnMatricularCursos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Matricular alumno"/>
+            <Property name="text" type="java.lang.String" value="A&#xf1;adir curso"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMatricularCursosActionPerformed"/>
@@ -1398,7 +1427,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnEliminarCursos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Eliminar alumno"/>
+            <Property name="text" type="java.lang.String" value="Eliminar curso"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1406,7 +1435,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnModCursos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modificar alumno"/>
+            <Property name="text" type="java.lang.String" value="Modificar curso"/>
           </Properties>
         </Component>
       </SubComponents>
