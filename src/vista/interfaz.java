@@ -53,12 +53,10 @@ public class interfaz extends javax.swing.JFrame {
         etiNombre2 = new javax.swing.JLabel();
         etiApellidos2 = new javax.swing.JLabel();
         etiTelefono2 = new javax.swing.JLabel();
-        etiCurso2 = new javax.swing.JLabel();
         txtDNI_Doc = new javax.swing.JFormattedTextField();
         txtNombre_Doc = new javax.swing.JFormattedTextField();
         txtApellidos_Doc = new javax.swing.JFormattedTextField();
         txtTelf_Doc = new javax.swing.JFormattedTextField();
-        txtCurso_Doc = new javax.swing.JFormattedTextField();
         btnVerDoc = new javax.swing.JButton();
         btnMatricularDoc = new javax.swing.JButton();
         btnEliminarDoc = new javax.swing.JButton();
@@ -343,7 +341,7 @@ public class interfaz extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
-        panTabDoc.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "   Lista de Productos  ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        panTabDoc.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DOCENTES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11)));
 
         tabDocentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -388,16 +386,9 @@ public class interfaz extends javax.swing.JFrame {
         etiTelefono2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         etiTelefono2.setText("Teléfono");
 
-        etiCurso2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        etiCurso2.setText("Curso en el que se matricula");
-
-        try {
-            txtDNI_Doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########-A")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtDNI_Doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtDNI_Doc.setText("");
-        txtDNI_Doc.setToolTipText("DNI EN FORMATO ########-A");
+        txtDNI_Doc.setToolTipText("DNI EN FORMATO ########");
         txtDNI_Doc.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtDNI_Doc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -405,11 +396,6 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
-        try {
-            txtNombre_Doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("******************************")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
         txtNombre_Doc.setText("");
         txtNombre_Doc.setToolTipText("");
         txtNombre_Doc.addActionListener(new java.awt.event.ActionListener() {
@@ -418,7 +404,6 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
-        txtApellidos_Doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         txtApellidos_Doc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidos_DocActionPerformed(evt);
@@ -426,8 +411,6 @@ public class interfaz extends javax.swing.JFrame {
         });
 
         txtTelf_Doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        txtCurso_Doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         javax.swing.GroupLayout intDatPanDocLayout = new javax.swing.GroupLayout(intDatPanDoc);
         intDatPanDoc.setLayout(intDatPanDocLayout);
@@ -457,12 +440,7 @@ public class interfaz extends javax.swing.JFrame {
                                 .addComponent(etiApellidos2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                                 .addComponent(txtApellidos_Doc, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(41, 41, 41))
-                    .addGroup(intDatPanDocLayout.createSequentialGroup()
-                        .addComponent(etiCurso2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCurso_Doc, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(41, 41, 41))))
         );
         intDatPanDocLayout.setVerticalGroup(
             intDatPanDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -483,50 +461,51 @@ public class interfaz extends javax.swing.JFrame {
                 .addGroup(intDatPanDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiTelefono2)
                     .addComponent(txtTelf_Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(intDatPanDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiCurso2)
-                    .addComponent(txtCurso_Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnVerDoc.setText("Ver alumnos");
+        btnVerDoc.setText("Ver docentes");
         btnVerDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerDocActionPerformed(evt);
             }
         });
 
-        btnMatricularDoc.setText("Matricular alumno");
+        btnMatricularDoc.setText("Añadir docente");
         btnMatricularDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMatricularDocActionPerformed(evt);
             }
         });
 
-        btnEliminarDoc.setText("Eliminar alumno");
+        btnEliminarDoc.setText("Eliminar docente");
+        btnEliminarDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDocActionPerformed(evt);
+            }
+        });
 
-        btnModDoc.setText("Modificar alumno");
+        btnModDoc.setText("Modificar docente");
 
         javax.swing.GroupLayout panDocLayout = new javax.swing.GroupLayout(panDoc);
         panDoc.setLayout(panDocLayout);
         panDocLayout.setHorizontalGroup(
             panDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panDocLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panDocLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(intDatPanDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(panTabDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panDocLayout.createSequentialGroup()
-                        .addComponent(btnVerDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMatricularDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminarDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnModDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54))))
+                    .addComponent(intDatPanDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panTabDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(panDocLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(btnVerDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnMatricularDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminarDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnModDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panDocLayout.setVerticalGroup(
             panDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -535,16 +514,16 @@ public class interfaz extends javax.swing.JFrame {
                 .addComponent(panTabDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(intDatPanDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVerDoc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModDoc, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnEliminarDoc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMatricularDoc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(31, 31, 31))
+                .addGap(18, 18, 18)
+                .addGroup(panDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerDoc)
+                    .addComponent(btnMatricularDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminarDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
 
-        panTabAulas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "   Lista de Productos  ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        panTabAulas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "AULAS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11)));
 
         tabAulas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -583,12 +562,7 @@ public class interfaz extends javax.swing.JFrame {
         etiAforoAula.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         etiAforoAula.setText("Aforo");
 
-        try {
-            txtIDAula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtIDAula.setText("        ");
+        txtIDAula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtIDAula.setToolTipText("DNI EN FORMATO ########");
         txtIDAula.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtIDAula.addActionListener(new java.awt.event.ActionListener() {
@@ -597,11 +571,7 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
-        try {
-            txtAforoAula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("******************************")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtAforoAula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtAforoAula.setText("");
         txtAforoAula.setToolTipText("");
         txtAforoAula.addActionListener(new java.awt.event.ActionListener() {
@@ -696,7 +666,7 @@ public class interfaz extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        panTabCursos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "   Lista de Productos  ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        panTabCursos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CURSOS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11)));
 
         tabCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -741,11 +711,7 @@ public class interfaz extends javax.swing.JFrame {
         etiTelefono4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         etiTelefono4.setText("Horas");
 
-        try {
-            txtIDCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtIDCurso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtIDCurso.setToolTipText("ID DEL CURSO EN FORMATO NUMÉRICO");
         txtIDCurso.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtIDCurso.addActionListener(new java.awt.event.ActionListener() {
@@ -754,11 +720,6 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
-        try {
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtNombreCurso.setText("");
         txtNombreCurso.setToolTipText("");
         txtNombreCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -860,7 +821,7 @@ public class interfaz extends javax.swing.JFrame {
                         .addComponent(btnEliminarCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnModCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54))))
+                        .addGap(60, 60, 60))))
         );
         panCursosLayout.setVerticalGroup(
             panCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -870,13 +831,15 @@ public class interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(intDatPanCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVerCursos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModCursos, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnEliminarCursos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMatricularCursos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnModCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminarCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMatricularCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVerCursos, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
                 .addGap(31, 31, 31))
         );
+
+        panTabCursos.getAccessibleContext().setAccessibleName("");
 
         menArch.setText("Archivo");
 
@@ -1091,6 +1054,10 @@ public class interfaz extends javax.swing.JFrame {
         panAulas.setVisible(false);
     }//GEN-LAST:event_btnPpalCursosActionPerformed
 
+    private void btnEliminarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarDocActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1128,7 +1095,6 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel etiApellidos2;
     private javax.swing.JLabel etiApellidos4;
     private javax.swing.JLabel etiCurso1;
-    private javax.swing.JLabel etiCurso2;
     private javax.swing.JLabel etiDNI1;
     private javax.swing.JLabel etiDNI2;
     private javax.swing.JLabel etiDNI4;
@@ -1170,7 +1136,6 @@ public class interfaz extends javax.swing.JFrame {
     public javax.swing.JFormattedTextField txtApellidos_Alum;
     public javax.swing.JFormattedTextField txtApellidos_Doc;
     public javax.swing.JFormattedTextField txtCurso_Alum;
-    public javax.swing.JFormattedTextField txtCurso_Doc;
     public javax.swing.JFormattedTextField txtDNI_Alum;
     public javax.swing.JFormattedTextField txtDNI_Doc;
     public javax.swing.JFormattedTextField txtHorasCurso;

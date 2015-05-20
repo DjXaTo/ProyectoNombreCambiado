@@ -554,24 +554,23 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="intDatPanDoc" alignment="0" min="-2" max="-2" attributes="1"/>
-                          <Component id="panTabDoc" alignment="0" min="-2" max="-2" attributes="1"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="btnVerDoc" min="-2" pref="95" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="btnMatricularDoc" min="-2" pref="121" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="btnEliminarDoc" min="-2" pref="109" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="btnModDoc" min="-2" pref="117" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="intDatPanDoc" alignment="0" min="-2" max="-2" attributes="1"/>
+                      <Component id="panTabDoc" alignment="0" min="-2" max="-2" attributes="1"/>
                   </Group>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="btnVerDoc" min="-2" pref="95" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnMatricularDoc" min="-2" pref="121" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnEliminarDoc" min="-2" pref="109" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnModDoc" min="-2" pref="117" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -582,14 +581,14 @@
                   <Component id="panTabDoc" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="intDatPanDoc" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnVerDoc" alignment="1" max="32767" attributes="1"/>
-                      <Component id="btnModDoc" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEliminarDoc" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnMatricularDoc" alignment="1" max="32767" attributes="1"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnVerDoc" alignment="3" min="-2" max="-2" attributes="1"/>
+                      <Component id="btnMatricularDoc" alignment="3" max="32767" attributes="1"/>
+                      <Component id="btnEliminarDoc" alignment="3" max="32767" attributes="0"/>
+                      <Component id="btnModDoc" alignment="3" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -597,12 +596,8 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="panTabDoc">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="   Lista de Productos  ">
-                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
-                </TitledBorder>
-              </Border>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="javax.swing.BorderFactory.createTitledBorder(null, &quot;DOCENTES&quot;, javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(&quot;Tahoma&quot;, 1, 11))" type="code"/>
             </Property>
           </Properties>
 
@@ -699,12 +694,6 @@
                               </Group>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="etiCurso2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtCurso_Doc" min="-2" pref="143" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -731,11 +720,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="etiTelefono2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtTelf_Doc" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="etiCurso2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCurso_Doc" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -775,21 +759,15 @@
                 <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="etiCurso2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Curso en el que se matricula"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtDNI_Doc">
               <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="########-A" subtype="-1" type="5"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value=""/>
-                <Property name="toolTipText" type="java.lang.String" value="DNI EN FORMATO ########-A"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;DNI EN FORMATO ########&quot;" type="code"/>
+                </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Texto"/>
                 </Property>
@@ -803,9 +781,6 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtNombre_Doc">
               <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="******************************" subtype="-1" type="5"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value=""/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
@@ -817,11 +792,6 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtApellidos_Doc">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format format="#0.00" subtype="-1" type="0"/>
-                </Property>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtApellidos_DocActionPerformed"/>
               </Events>
@@ -839,21 +809,11 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtCurso_Doc">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format format="#0" subtype="-1" type="0"/>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="btnVerDoc">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver alumnos"/>
+            <Property name="text" type="java.lang.String" value="Ver docentes"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerDocActionPerformed"/>
@@ -864,7 +824,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnMatricularDoc">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Matricular alumno"/>
+            <Property name="text" type="java.lang.String" value="A&#xf1;adir docente"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMatricularDocActionPerformed"/>
@@ -875,15 +835,18 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnEliminarDoc">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Eliminar alumno"/>
+            <Property name="text" type="java.lang.String" value="Eliminar docente"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarDocActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btnModDoc">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modificar alumno"/>
+            <Property name="text" type="java.lang.String" value="Modificar docente"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -939,12 +902,8 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="panTabAulas">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="   Lista de Productos  ">
-                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
-                </TitledBorder>
-              </Border>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="javax.swing.BorderFactory.createTitledBorder(null, &quot;AULAS&quot;, javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(&quot;Tahoma&quot;, 1, 11))" type="code"/>
             </Property>
           </Properties>
 
@@ -1064,10 +1023,9 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtIDAula">
               <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Connection code="new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter(&quot;########&quot;))" type="code"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#0" subtype="-1" type="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="        "/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="&quot;DNI EN FORMATO ########&quot;" type="code"/>
                 </Property>
@@ -1084,8 +1042,8 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtAforoAula">
               <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="******************************" subtype="-1" type="5"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value=""/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -1159,7 +1117,7 @@
                           <Component id="btnEliminarCursos" min="-2" pref="109" max="-2" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="btnModCursos" min="-2" pref="117" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1173,11 +1131,11 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="intDatPanCursos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnVerCursos" alignment="1" max="32767" attributes="1"/>
-                      <Component id="btnModCursos" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEliminarCursos" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnMatricularCursos" alignment="1" max="32767" attributes="1"/>
+                  <Group type="103" groupAlignment="2" attributes="0">
+                      <Component id="btnModCursos" alignment="2" max="32767" attributes="0"/>
+                      <Component id="btnEliminarCursos" alignment="2" max="32767" attributes="0"/>
+                      <Component id="btnMatricularCursos" alignment="2" max="32767" attributes="1"/>
+                      <Component id="btnVerCursos" alignment="2" pref="46" max="32767" attributes="1"/>
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
@@ -1187,14 +1145,13 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="panTabCursos">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="   Lista de Productos  ">
-                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
-                </TitledBorder>
-              </Border>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="javax.swing.BorderFactory.createTitledBorder(null, &quot;CURSOS&quot;, javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(&quot;Tahoma&quot;, 1, 11))" type="code"/>
             </Property>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+          </AccessibilityProperties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -1353,8 +1310,8 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtIDCurso">
               <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Connection code="new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter(&quot;####&quot;))" type="code"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="&quot;ID DEL CURSO EN FORMATO NUM&#xc9;RICO&quot;" type="code"/>
@@ -1372,8 +1329,6 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtNombreCurso">
               <Properties>
-                <Property name="formatterFactory" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
-                <Property name="text" type="java.lang.String" value=""/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
